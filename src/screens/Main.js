@@ -11,7 +11,7 @@ export default class Main extends Component {
         return (
             <View style={{ flex: 1 }}>
                 <Header />
-                <Atividades />
+                <Salas />
             </View>
         )
     }

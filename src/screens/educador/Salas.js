@@ -10,7 +10,7 @@ class Salas extends Component {
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-                        <Image source={this.props.image} style={styles.image} />
+                        <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Alfabetização I</Text>
                             <Text style={{ color: 'grey'}}>Tarde</Text>
@@ -19,7 +19,7 @@ class Salas extends Component {
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-                        <Image source={this.props.image} style={styles.image} />
+                        <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Jardim II</Text>
                             <Text style={{ color: 'grey'}}>Manhã</Text>
@@ -28,7 +28,7 @@ class Salas extends Component {
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-                        <Image source={this.props.image} style={styles.image} />
+                        <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Alfabetização II</Text>
                             <Text style={{ color: 'grey'}}>Tarde</Text>
@@ -37,7 +37,7 @@ class Salas extends Component {
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-                        <Image source={this.props.image} style={styles.image} />
+                        <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Jardim III</Text>
                             <Text style={{ color: 'grey'}}>Manhã</Text>
@@ -46,7 +46,7 @@ class Salas extends Component {
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-                        <Image source={this.props.image} style={styles.image} />
+                        <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Jardim I</Text>
                             <Text style={{ color: 'grey'}}>Tarde</Text>
@@ -55,7 +55,7 @@ class Salas extends Component {
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
-                        <Image source={this.props.image} style={styles.image} />
+                        <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Cheche</Text>
                             <Text style={{ color: 'grey'}}>Manhã</Text>
