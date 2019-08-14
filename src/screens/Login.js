@@ -19,6 +19,9 @@ class Login extends Component {
                     <Text style={styles.buttomText}>Entrar</Text>
             </TouchableOpacity>
             </View>
+            <View style={{marginTop: 35}}>
+            <Text >Mural Kids todos os direitos reservados.</Text>
+            </View>
         </View>
         );
     }
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderWidth: 1,
         borderColor: '#000000',
-        margin: 20,
+        margin: 10,
         padding: 10,
     },
     buttom: {
@@ -66,4 +69,4 @@ const SplashRouter = createSwitchNavigator({
     initialRouteName: 'Splash'
 })
 
-export default SplashRouter
+export default Login
