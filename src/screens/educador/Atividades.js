@@ -78,7 +78,8 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         resizeMode: 'contain',
-        marginLeft: 5
+        marginLeft: 5,
+        borderRadius: 150,
     },
     foto: {
         width: 60,
