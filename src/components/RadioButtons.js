@@ -20,8 +20,8 @@ export default class RadioButtons extends Component {
                                             value: item.key,
                                         });
                                     }} style={{flexDirection: 'row'}}>
-                                <Text>{item.text}</Text>
-                                <TouchableOpacity
+								
+								<TouchableOpacity
                                     style={styles.circle}
                                     onPress={() => {
                                         this.setState({
@@ -31,6 +31,9 @@ export default class RadioButtons extends Component {
                                 >
                                     {value === item.key && <View style={styles.checkedCircle} />}
                                 </TouchableOpacity>
+
+                                <Text>{item.text}</Text>
+                                
                             </TouchableOpacity>
 
 						</View>
@@ -55,10 +58,11 @@ const styles = StyleSheet.create({
 		width: 20,
 		borderRadius: 10,
 		borderWidth: 1,
-		borderColor: '#ACACAC',
+		borderColor: '#000',
 		alignItems: 'center',
         justifyContent: 'center',
-        marginLeft: 10,
+		marginLeft: 10,
+		marginRight: 10,
 	},
   
 	checkedCircle: {

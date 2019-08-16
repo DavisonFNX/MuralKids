@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity, ImageBackground, Button, TextInput } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity, ImageBackground, Button, TextInput, ScrollView } from 'react-native';
 import RadioButtons from '../../components/RadioButtons';
+import { CheckBox } from 'react-native-elements';
+import ImagePicker from 'react-native-image-picker';
+
 
 const options = [
     {
@@ -16,6 +19,29 @@ const options = [
         text: 'Ótimo',
     },
 ];
+
+class AddPhoto extends Component {
+    state = {
+        image: null,
+        comment: '',
+    }
+
+    pickImage = () => {
+        ImagePicker.showImagePicker({
+            title: 'Escolha a imagem',
+            maxHeight: 600,
+            maxWidth: 800
+        }, res => {
+            if (!res.didCancel) {
+                this.setState({ image: { uri:res.uri, base64: res.data } })
+            }
+        })
+    }
+    
+    save = async() => {
+        alert.alert('Imagem adicionada!', this.state.comment)
+    }
+}
 
 class UselessTextInput extends Component {
     render() {
@@ -50,6 +76,16 @@ class Tarefa extends Component {
                     <View style={styles.quadro1}>
                         <Text style={{ marginBottom: 10, fontWeight: 'bold', marginTop: 10, marginLeft: 5 }}>Avaliação da Atividade</Text>
                         <RadioButtons options={options} />
+
+                        {/* <CheckBox
+                            center
+                            title='Regular'
+                            checkedIcon='dot-circle-o'
+                            uncheckedIcon='circle-o'
+                            checked={this.state.checked}
+                        /> */}
+                      
+
                         <View style={{ alignItems: 'center'}}>
                             <Button
                                 title="Salvar"
@@ -57,6 +93,7 @@ class Tarefa extends Component {
                                 accessibilityLabel="Salva as opções"
                             />
                         </View>
+
                     </View>
                     <View style={styles.quadro2}></View>
                     <View style={styles.quadro3}>
@@ -100,9 +137,10 @@ const styles = StyleSheet.create({
         left: 10,
         height: 225,
         width: 165,
-        backgroundColor: 'white',
         opacity: 0.6,
         borderRadius: 15,
+        paddingTop: 0,
+        alignItems: 'flex-start'
     },
     quadro2: {      
         position: 'absolute',
@@ -110,13 +148,13 @@ const styles = StyleSheet.create({
         left: 185,
         height: 225,
         width: 165,
-        backgroundColor: 'white',
+        backgroundColor: 'grey',
         opacity: 0.6,
         borderRadius: 15,
     },
     quadro3: {      
         position: 'absolute',
-        top: 300,
+        top: 330,
         left: 10,
         height: 100,
         width: 340,
