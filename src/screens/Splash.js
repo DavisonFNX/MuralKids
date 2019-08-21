@@ -6,10 +6,7 @@ export default class Splash extends Component{
     
     constructor(props) {
         super(props);
-      
-        this.state = { isLoading: true }
     }
-
     render() {
         return (
             <View style={styles.container}>
@@ -26,5 +23,9 @@ const styles = StyleSheet.create({
         marginTop: Platform.OS === 'ios' ? 20 : 0,
         justifyContent: 'center',
         backgroundColor: '#badc58'
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 28
     }
 })

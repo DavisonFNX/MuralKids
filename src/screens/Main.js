@@ -5,18 +5,14 @@ import Salas from './educador/Salas';
 import Lista from './educador/ListaAlunos';
 import Atividades from './educador/Atividades';
 import Tarefa from './educador/Tarefa';
+import Educador from './educador/Educador'
 
 
 export default class Main extends Component {
    static navigationOptions = {
        title: 'Main',
    };
-   
-   constructor(props){
-    super(props);
-   this.props.navigation.navigate('');
-   }
-   
+
     render() {
         return (
             <View style={styles.container}>

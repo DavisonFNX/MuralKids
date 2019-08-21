@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import  {View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Platform,  KeyboardAvoidingView } from 'react-native';
-import { createSwitchNavigator } from 'react-navigation';
-import LoginForm from './LoginForm';
+import  {View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Platform,  KeyboardAvoidingView, StatusBar } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation'
+import Educador from './educador/Educador'
 
 class Login extends Component {
+    static navigationOptions = {
+        title: 'Login',
+        header: null,
+    };
     render(){
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
@@ -11,13 +15,52 @@ class Login extends Component {
                     <Image style={styles.logo} source={require('../images/Logo.png')} />
                 </View>
                 <View style={styles.formContainer}>
-                    <LoginForm />
+                    <StatusBar 
+                        barStyle='light-content'
+                    />
+                    <TextInput 
+                        returnKeyType='next' 
+                        placeholder="usuário ou email" 
+                        onSubmitEditing={() => this.passwordInput.focus()}
+                        keyboardType='email-address'
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        style={styles.input} 
+                    />
+                    <TextInput 
+                        returnKeyType='go' 
+                        secureTextEntry 
+                        placeholder="senha" 
+                        autoCapitalize='none'
+                        style={styles.input}
+                        ref={(input) => this.passwordInput = input}  
+                    />
+                    <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('Educador')}>
+                        <Text style={styles.buttonText}>LOGIN</Text>
+                    </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>
         );
     }
-
 }
+
+const Navegador = createStackNavigator({
+    Login: {
+        screen: Login
+    },
+    Educador: {
+        screen: Educador
+    }
+},{
+    initialRouteName: 'Login',
+    mode: 'modal',
+    defaultNavigationOptions:{
+        headerBackTitle: null,
+
+    }
+});
+
+const AppContainer = createAppContainer(Navegador);
 
 const styles = StyleSheet.create({
     container:{
@@ -29,42 +72,35 @@ const styles = StyleSheet.create({
     logoContainer: {
         alignItems: 'center',
         flexGrow: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+    },
+    formContainer: {
+        padding: 20,
+        width: 360,
     },
     logo: {
         width: 140,
         height: 140,
     },
-
-
-    // input: {
-    //     height: 40,
-    //     width: 250,
-    //     borderRadius: 20,
-    //     borderWidth: 1,
-    //     borderColor: '#000000',
-    //     margin: 10,
-    //     padding: 10,
-    //     backgroundColor: '#FFF'
-    // },
-    // buttom: {
-    //     marginTop: 15,
-    //     padding: 8,
-    //     backgroundColor: '#2f363fff',
-    //     width: 180,
-    //     height: 50,
-    //     borderRadius: 12,
-    //     borderWidth: 3,
-    //     borderColor: '#000000',
+    input: {
+        height: 40,
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        marginBottom: 10,
+        color: 'black',
+        paddingHorizontal: 10
         
-    // },
-    // buttomText: {
-    //     fontSize: 20,
-    //     color: '#FFF',
-    //     textAlign: 'center',
-    //     fontWeight: 'bold'
-    // },
+    },
+    buttonContainer: {
+        backgroundColor: '#6ab04c',
+        paddingVertical: 15,
+        height: 45,
+    },
+    buttonText: {
+        textAlign: 'center',
+        color: '#FFF',
+        fontWeight: '700'
+    }
 })
 
 
-export default Login
+export default AppContainer
