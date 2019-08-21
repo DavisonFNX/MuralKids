@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         marginTop: Platform.OS === 'ios' ? 20 : 0,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#badc58'
     }
 })

@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity, ImageBackground, Button, TextInput, ScrollView } from 'react-native';
+import { 
+    StyleSheet, 
+    View, 
+    Image, 
+    Text,
+    TouchableOpacity,
+    ImageBackground, 
+    Button, 
+    TextInput,
+    FlatList } from 'react-native';
 import RadioButtons from '../../components/RadioButtons';
-import { CheckBox } from 'react-native-elements';
-import ImagePicker from 'react-native-image-picker';
+import AddPhoto from '../../components/AddPhoto';
 
 
 const options = [
@@ -19,29 +27,6 @@ const options = [
         text: 'Ótimo',
     },
 ];
-
-class AddPhoto extends Component {
-    state = {
-        image: null,
-        comment: '',
-    }
-
-    pickImage = () => {
-        ImagePicker.showImagePicker({
-            title: 'Escolha a imagem',
-            maxHeight: 600,
-            maxWidth: 800
-        }, res => {
-            if (!res.didCancel) {
-                this.setState({ image: { uri:res.uri, base64: res.data } })
-            }
-        })
-    }
-    
-    save = async() => {
-        alert.alert('Imagem adicionada!', this.state.comment)
-    }
-}
 
 class UselessTextInput extends Component {
     render() {
@@ -66,48 +51,46 @@ class Tarefa extends Component {
     render() {
         return (
             <View style={styles.container}>
-                    <ImageBackground source={require('../../images/mariana.png')} style={styles.fundo}>
+
+                        <ImageBackground source={require('../../images/mariana.png')} style={styles.fundo}>
+                            
+                        </ImageBackground>
+                        <View style={styles.titulo}>
+                                <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Pintura da Bandeira do Brasil</Text>
+                                <Text style={{ color: 'grey', marginBottom: 5}}>06/03/2019</Text>
+                        </View>
+                        <View style={styles.quadro1}>
+                            <Text style={{ marginBottom: 10, fontWeight: 'bold', marginTop: 10, marginLeft: 10}}>Avaliação da Atividade</Text>
+                            <RadioButtons options={options} />
                         
-                    </ImageBackground>
-                    <View style={styles.titulo}>
-                            <Text style={{ fontWeight: 'bold'}}>Pintura da Bandeira do Brasil</Text>
-                            <Text style={{ color: 'grey', marginBottom: 5}}>06/03/2019</Text>
-                    </View>
-                    <View style={styles.quadro1}>
-                        <Text style={{ marginBottom: 10, fontWeight: 'bold', marginTop: 10, marginLeft: 5 }}>Avaliação da Atividade</Text>
-                        <RadioButtons options={options} />
+                            <View style={{ alignItems: 'center', marginLeft: 45}}>
+                                <Button
+                                    title="Salvar"
+                                    color="#841584"
+                                    accessibilityLabel="Salva as opções"
+                                />
+                            </View>
 
-                        {/* <CheckBox
-                            center
-                            title='Regular'
-                            checkedIcon='dot-circle-o'
-                            uncheckedIcon='circle-o'
-                            checked={this.state.checked}
-                        /> */}
-                      
-
-                        <View style={{ alignItems: 'center'}}>
-                            <Button
-                                title="Salvar"
-                                color="#841584"
-                                accessibilityLabel="Salva as opções"
-                            />
+                        </View>
+                        <View style={styles.quadro2}>
+                            <TouchableOpacity style={{alignItems: 'center', marginTop: 60}}>
+                                <Image source={require('../../images/photo.png')} style={styles.image} />
+                            </TouchableOpacity>
                         </View>
 
-                    </View>
-                    <View style={styles.quadro2}></View>
-                    <View style={styles.quadro3}>
-                        <View style={{
-                            backgroundColor: this.state.text,
-                            borderBottomColor: '#000000'}}>
-                            <UselessTextInput
-                                multiline = {true}
-                                numberOfLines = {4}
-                                onChangeText={(text) => this.setState({text})}
-                                value={this.state.text}
-                            />
+                        <View style={styles.quadro3}>
+                            <View style={{
+                                backgroundColor: this.state.text,
+                                borderBottomColor: '#000000'}}>
+                                <UselessTextInput
+                                    multiline = {true}
+                                    numberOfLines = {4}
+                                    onChangeText={(text) => this.setState({text})}
+                                    value={this.state.text}
+                                />
+                            </View>
                         </View>
-                    </View>
+
             </View>
         )
     }
@@ -131,6 +114,10 @@ const styles = StyleSheet.create({
         height: '110%',
         opacity: 0.5,
     },
+    image: {
+        width: '60%',
+        height: '60%',
+    },
     quadro1: {      
         position: 'absolute',
         top: 70,
@@ -140,13 +127,14 @@ const styles = StyleSheet.create({
         opacity: 0.6,
         borderRadius: 15,
         paddingTop: 0,
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
+        borderWidth: 1,
     },
     quadro2: {      
         position: 'absolute',
-        top: 70,
+        top: 80,
         left: 185,
-        height: 225,
+        height: 200,
         width: 165,
         backgroundColor: 'grey',
         opacity: 0.6,
@@ -165,4 +153,4 @@ const styles = StyleSheet.create({
     
 })
 
-export default Tarefa;
+export default Tarefa

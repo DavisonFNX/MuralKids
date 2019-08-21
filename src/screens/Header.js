@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        backgroundColor: '#e9e9e9',
+        backgroundColor: '#badc58',
     },
     image: {
         width: 80,
