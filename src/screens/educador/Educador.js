@@ -4,6 +4,7 @@ import  {View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 export default class Educador extends Component {
     static navigationOptions = {
         title: 'Login',
+        header: null,
         headerStyle: {
             backgroundColor: '#badc58'
         }
@@ -16,7 +17,7 @@ export default class Educador extends Component {
                     <Image source={require('../../images/escola.png')} style={styles.logo} />           
                 </View>
 
-                <Text style={styles.titulo}>Escola Veritas de Jaboatão dos Guararapes</Text>
+                <Text style={styles.titulo}>Escola Veritas dos Guararapes</Text>
                 <View style={{alignItems: 'center'}}>
                     <Text style={{fontWeight: 'bold'}}>Bem vindo ao aplicativo</Text>
                     <Text >Clique nas opções abaixo para continuar</Text>
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignContent: 'space-between',
         alignItems: 'center',
-        marginTop: Platform.OS === 'ios' ? 20 : 10,
+        marginTop: Platform.OS === 'ios' ? 20 : 0,
         justifyContent: 'flex-start',
         backgroundColor: '#badc58'
     },
@@ -63,8 +64,9 @@ const styles = StyleSheet.create({
         marginRight: 50      
     },
     logo: {
-        width: 115,
-        height: 139,        
+        width: 88,
+        height: 114,
+        marginTop: 10        
     },
     logomarcas: {
        flexDirection: 'row',
@@ -74,24 +76,21 @@ const styles = StyleSheet.create({
         marginTop: 30,
         marginBottom:20,
         fontSize: 22,
-        color: 'green',
+        color: '#1e3799',
         fontWeight: 'bold',
         textAlign: 'center'
     },
     buttom: {
         marginTop: 10,
-        padding: 8,
-        backgroundColor: '#e6e6e6',
-        width: 200,
-        height: 40,
-        borderWidth: 1,
-        borderColor: 'grey',
+        width: 330,
+        backgroundColor: '#6ab04c',
+        paddingVertical: 12,
+        height: 45,
         
     },
     buttomText: {
-        fontSize: 15,
-        color: 'black',
+        color: '#FFF',
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: '700'
     },
 })
