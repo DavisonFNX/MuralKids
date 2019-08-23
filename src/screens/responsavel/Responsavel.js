@@ -37,12 +37,7 @@ export default class Educador extends Component {
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
                         style={styles.buttom}>
-                        <Text style={styles.buttomText}>Mensagens</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
-                        <Text style={styles.buttomText}>Mural de Fotos</Text>
+                        <Text style={styles.buttomText}>Mural</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 

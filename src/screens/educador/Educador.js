@@ -3,7 +3,10 @@ import  {View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { createDrawerNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 
 import MainTarefa from '../MainTarefa';
-import MainSalas from '../MainSalas'
+import MainSalas from '../MainSalas';
+import Mural from '../Mural';
+import Feed from '../Feed';
+import Navigator from '../Navigator'
 
 class Educador extends Component {
     static navigationOptions = {
@@ -32,13 +35,8 @@ class Educador extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
-                        <Text style={styles.buttomText}>Lista de alunos</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
-                        <Text style={styles.buttomText}>Mensagens</Text>
+                        style={styles.buttom} onPress={() => this.props.navigation.navigate('Navigator')}>
+                        <Text style={styles.buttomText}>Mural</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
@@ -60,6 +58,12 @@ const Routes = createStackNavigator({
         },
         MainSalas: {
             screen: MainSalas
+        },
+        Mural:{
+            screen: Mural
+        },
+        Navigator:{
+            screen: Navigator
         }
     },{
         initialRouteName: 'Educador',
