@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import  {View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { createDrawerNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 
-export default class Educador extends Component {
+import Atividades from '../educador/Atividades'
+import Navigator from '../Navigator'
+import InfoUteis from '../InfoUteis';
+
+
+class Responsavel extends Component {
     static navigationOptions = {
         header: null,
     };
@@ -31,17 +37,17 @@ export default class Educador extends Component {
                 <View>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
+                        style={styles.buttom} onPress={() => this.props.navigation.navigate('Atividades')}> 
                         <Text style={styles.buttomText}>Atividades Escolares</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
+                        style={styles.buttom} onPress={() => this.props.navigation.navigate('Navigator')}>
                         <Text style={styles.buttomText}>Mural</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
+                        style={styles.buttom} onPress={() => this.props.navigation.navigate('InfoUteis')}>
                         <Text style={styles.buttomText}>Informações Úteis</Text>
                     </TouchableOpacity>
                 </View>
@@ -50,12 +56,35 @@ export default class Educador extends Component {
     }
 }
 
+const Routes = createStackNavigator({
+    Responsavel: {
+        screen: Responsavel
+    },
+    Atividades: {
+        screen: Atividades
+    },
+    InfoUteis:{
+        screen: InfoUteis
+    },
+    Navigator:{
+        screen: Navigator
+    }
+},{
+    initialRouteName: 'Responsavel',
+    mode: 'modal',
+    defaultNavigationOptions:{
+        headerBackTitle: null,
+        header: null,
+
+    }
+});
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignContent: 'space-between',
         alignItems: 'center',
-        marginTop: Platform.OS === 'ios' ? 20 : 10,
+        marginTop: Platform.OS === 'ios' ? 20 : 0,
         justifyContent: 'flex-start',
         backgroundColor: '#ecf0f1'
     },
@@ -66,7 +95,8 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: 70,
-        height: 94,      
+        height: 94, 
+        marginTop: 5     
     },
     logomarcas: {
        flexDirection: 'row',
@@ -115,3 +145,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
 })
+
+export default Routes

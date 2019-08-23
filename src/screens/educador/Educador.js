@@ -4,8 +4,6 @@ import { createDrawerNavigator, createAppContainer, createStackNavigator } from 
 
 import MainTarefa from '../MainTarefa';
 import MainSalas from '../MainSalas';
-import Mural from '../Mural';
-import Feed from '../Feed';
 import Navigator from '../Navigator'
 
 class Educador extends Component {
@@ -58,9 +56,6 @@ const Routes = createStackNavigator({
         },
         MainSalas: {
             screen: MainSalas
-        },
-        Mural:{
-            screen: Mural
         },
         Navigator:{
             screen: Navigator
