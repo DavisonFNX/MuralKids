@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import Salas from './educador/Salas';
-import Lista from './educador/ListaAlunos';
-import Atividades from './educador/Atividades';
-import Tarefa from './educador/Tarefa';
-import Educador from './educador/Educador';
+import Salas from './educador/Salas'
 
+import { createDrawerNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 
+import MainTarefa from './MainTarefa'
 
-export default class Main extends Component {
-   static navigationOptions = {
-       header: null,
-   };
+class MainSalas extends Component {
+    static navigationOptions = {
+        header: null,
+        headerMode: 'none'
+    };
 
     render() {
         return (
@@ -23,13 +22,15 @@ export default class Main extends Component {
                     </View>
                     
                         <View style={styles.box1}>
-                            <Tarefa />
+                            <Salas />
                         </View>
                     </ScrollView>
             </View>
         )
     }
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -42,3 +43,5 @@ const styles = StyleSheet.create({
         height: 490
     }
 })
+
+export default MainSalas

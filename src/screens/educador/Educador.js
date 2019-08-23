@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import  {View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { createDrawerNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 
-export default class Educador extends Component {
+import MainTarefa from '../MainTarefa';
+import MainSalas from '../MainSalas'
+
+class Educador extends Component {
     static navigationOptions = {
-        title: 'Login',
         header: null,
-        headerStyle: {
-            backgroundColor: '#badc58'
-        }
+        headerMode: 'none'
     };
+
     render() {
         return (
             <View style={styles.container}>
@@ -25,7 +27,7 @@ export default class Educador extends Component {
                 <View>
                     <TouchableOpacity 
                         //onPress={() => { this.props.onCreateUser(this.state) }} 
-                        style={styles.buttom}>
+                        style={styles.buttom} onPress={() => this.props.navigation.navigate('MainSalas')}>
                         <Text style={styles.buttomText}>Lista das Salas</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
@@ -49,6 +51,26 @@ export default class Educador extends Component {
     }
 }
 
+const Routes = createStackNavigator({
+        Educador: {
+            screen: Educador
+        },
+        MainTarefa: {
+            screen: MainTarefa
+        },
+        MainSalas: {
+            screen: MainSalas
+        }
+    },{
+        initialRouteName: 'Educador',
+        mode: 'modal',
+        defaultNavigationOptions:{
+            headerBackTitle: null,
+            header: null,
+    
+        }
+    });
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -56,7 +78,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: Platform.OS === 'ios' ? 20 : 0,
         justifyContent: 'flex-start',
-        backgroundColor: '#badc58'
+        backgroundColor: '#ecf0f1'
     },
     mural: {
         width: 120,
@@ -83,7 +105,7 @@ const styles = StyleSheet.create({
     buttom: {
         marginTop: 10,
         width: 330,
-        backgroundColor: '#6ab04c',
+        backgroundColor: '#7f8c8d',
         paddingVertical: 12,
         height: 45,
         
@@ -94,3 +116,5 @@ const styles = StyleSheet.create({
         fontWeight: '700'
     },
 })
+
+export default Routes

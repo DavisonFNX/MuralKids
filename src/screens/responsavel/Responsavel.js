@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import  {View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default class Educador extends Component {
+    static navigationOptions = {
+        header: null,
+    };
+
     render() {
         return (
             <View style={styles.container}>
@@ -58,6 +62,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: Platform.OS === 'ios' ? 20 : 10,
         justifyContent: 'flex-start',
+        backgroundColor: '#ecf0f1'
     },
     mural: {
         width: 120,

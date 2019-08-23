@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
+import { createDrawerNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
+
+import MainTarefa from '../MainTarefa'
+import MainSalas from '../MainSalas'
 
 class Salas extends Component {
     render() {
@@ -9,7 +13,7 @@ class Salas extends Component {
                     <Text style={{ textAlign: 'center', marginTop: 5, fontWeight: 'bold', fontSize: 18 }}>Lista de Salas de Aula</Text>
                 </View>
                 <View style={{ borderBottomColor: 'grey', borderBottomWidth: 1, marginTop: 10 }}>
-                    <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
+                    <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }} >
                         <Image source={require('../../images/classe.png')} style={styles.image} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
                             <Text>Alfabetização I</Text>
@@ -67,6 +71,16 @@ class Salas extends Component {
         )
     }
 }
+
+// const RoutesSala = createStackNavigator({
+//     Salas: {
+//         screen: Salas
+//     },
+//     MainTarefa: {
+//         screen: MainTarefa
+//     },
+
+// });
 
 const styles = StyleSheet.create({
     container: {

@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: Platform.OS === 'ios' ? 20 : 0,
         justifyContent: 'center',
-        backgroundColor: '#badc58'
+        backgroundColor: '#ecf0f1'
     },
     title: {
         fontWeight: 'bold',

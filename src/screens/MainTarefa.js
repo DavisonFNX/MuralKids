@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import Salas from './educador/Salas';
-import Lista from './educador/ListaAlunos';
-import Atividades from './educador/Atividades';
 import Tarefa from './educador/Tarefa';
-import Educador from './educador/Educador';
 
-
-
-export default class Main extends Component {
-   static navigationOptions = {
-       header: null,
-   };
+class MainTarefa extends Component {
+    static navigationOptions = {
+        header: null,
+        headerMode: 'none'
+    };
 
     render() {
         return (
@@ -31,6 +26,7 @@ export default class Main extends Component {
     }
 }
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -42,3 +38,5 @@ const styles = StyleSheet.create({
         height: 490
     }
 })
+
+export default MainTarefa
